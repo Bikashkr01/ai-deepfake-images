@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image + Chatbot</title>
+</head>
+<body>
+  <h2>Upload Image and Ask Question</h2>
+  <form id="chatForm" enctype="multipart/form-data">
+    <input type="file" name="image" required><br><br>
+    <input type="text" name="query" placeholder="Ask something..." required><br><br>
+    <button type="submit">Send</button>
+  </form>
+  <div id="reply" style="margin-top: 20px;"></div>
+
+  <script>
+    document.getElementById("chatForm").onsubmit = async function(e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      const res = await fetch("/chatbot", {
+        method: "POST",
+        body: form
+      });
+      const data = await res.json();
+      document.getElementById("reply").innerHTML = "<strong>🤖 Bot Response:</strong><br>" + data.reply;
+    }
+  </script>
+</body>
+</html>
