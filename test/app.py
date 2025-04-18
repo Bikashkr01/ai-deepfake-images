@@ -6,7 +6,7 @@ from PIL import Image
 from deepface import DeepFace
 
 app = Flask(__name__)
-GEMINI_API_KEY = "AIzaSyDogIeIkeCt_lcaWvZCMmGO3Q9I8Zhtvdo"
+GEMINI_API_KEY = ""
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
 
 # Load YOLOv8 model (download yolov8n.pt from Ultralytics site)
